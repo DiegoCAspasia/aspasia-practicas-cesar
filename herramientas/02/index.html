@@ -64,6 +64,11 @@
 
                 <textarea id="keywords" placeholder="Ingenieria, cocina, profesionalidad nivel II..."></textarea>
 
+                <label for="densidad-minima">Densidad minima (%):</label>
+                <input type="number" id="densidad-minima" value="0.5">
+
+                <label for="densidad-maxima">Densidad máxima (%):</label>
+                <input type="number" id="densidad-maxima" value="2.5">
             </div>
 
         </section>
@@ -135,8 +140,8 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Palabra/s</th>
-                        <th>Cantidad</th>
+                        <th><span id="sortPalabra">Palabra/s</span></th>
+                        <th><span id="sortCantidad">Cantidad</span></th>
                         <th>Porcentaje</th>
                     </tr>
                 </thead>

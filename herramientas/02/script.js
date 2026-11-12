@@ -10,6 +10,20 @@ function start() {
     const textoInput = document.getElementById("parrafo");
     const numeroPalabrasInput = document.getElementById("numero-palabras");
     const analizarBoton = document.getElementById("analizar");
+    const sortPalabra = document.getElementById("sortPalabra");
+    const sortCantidad = document.getElementById("sortCantidad");
+    const densidadMinimaInput = document.getElementById("densidad-minima");
+    const densidadMaximaInput = document.getElementById("densidad-maxima");
+    
+    const stopwords = [
+        "de", "la", "que", "el", "en", "y", "los", "para",
+        "del", "las", "un", "una", "uno", "unos", "unas",
+        "por", "con", "no", "se", "es", "al", "lo", "como",
+        "más", "pero", "sus", "le", "ya", "o", "este", "esta",
+        "entre", "cuando", "también", "sin", "sobre", "ser",
+        "son", "su", "ha", "hay", "fue", "muy", "hasta",
+        "desde", "todo", "todos", "nos", "mi", "me", "te"
+    ];
 
     let frecuenciaKeywords = new Map();
     let frecuencia = new Map();
@@ -32,13 +46,23 @@ function start() {
         });
     }
 
-    function calcularFrecuenciaNgramas(texto, n) {
+    function calcularFrecuenciaNgramas(texto, n, keywords) {
         frecuencia = new Map();
 
         const palabras = texto.match(/\b[\p{L}\p{N}]+\b/gu) || [];
 
         for (let i = 0; i <= palabras.length - n; i++) {
             const conjunto = palabras.slice(i, i + n).join(" ");
+
+            // Comprobar si el n-grama contiene alguna stopword
+            const contieneStopword = palabras
+                .slice(i, i + n)
+                .some(palabra => stopwords.includes(palabra));
+
+            // Comprobar si es una keyword del usuario
+            const esKeyword = keywords.includes(conjunto);
+
+            if (contieneStopword && !esKeyword) continue;
 
             frecuencia.set(
                 conjunto,
@@ -49,6 +73,8 @@ function start() {
 
     function pintarMetricas(keywords) {
         gridMetrica.innerHTML = "";
+        const totalNgramas = [...frecuencia.values()]
+            .reduce((a, b) => a + b, 0);
 
         keywords.forEach(keyword => {
             const metricCard = document.createElement("div");
@@ -58,21 +84,31 @@ function start() {
             span.textContent = keyword;
 
             const strong = document.createElement("strong");
-            strong.textContent = frecuenciaKeywords.get(keyword);
+            let frecuenciaKeyword = frecuenciaKeywords.get(keyword);
+            let porcentajeKeyword = Number(totalNgramas ? `${((frecuenciaKeyword / totalNgramas) * 100).toFixed(2)}` : "0");
+
+            if(porcentajeKeyword < densidadMinimaInput.value || porcentajeKeyword > densidadMaximaInput.value){
+                metricCard.className = `${metricCard.className} danger`;
+            }
+
+            strong.textContent = `${frecuenciaKeywords.get(keyword)} veces, ${porcentajeKeyword}%`;
 
             metricCard.append(span, strong);
             gridMetrica.append(metricCard);
         });
     }
 
-    function pintarTabla() {
+    function pintarTabla(sort = 1) {
         cuerpoTabla.innerHTML = "";
 
         const totalNgramas = [...frecuencia.values()]
             .reduce((a, b) => a + b, 0);
 
         const arrayFrecuencias = [...frecuencia.entries()]
-            .sort((a, b) => b[1] - a[1]);
+            .sort((a, b) => sort === 0
+                ? a[0].localeCompare(b[0])
+                : b[1] - a[1]
+            );
 
         arrayFrecuencias.slice(0, 20).forEach(([key, value]) => {
             const tr = document.createElement("tr");
@@ -102,10 +138,13 @@ function start() {
         );
 
         calcularFrecuenciaKeywords(texto, keywords);
-        calcularFrecuenciaNgramas(texto, numeroPalabras);
+        calcularFrecuenciaNgramas(texto, numeroPalabras, keywords);
         pintarMetricas(keywords);
         pintarTabla();
     }
 
     analizarBoton.addEventListener("click", analizar);
+    sortPalabra.addEventListener("click", () => { pintarTabla(0) });
+    sortCantidad.addEventListener("click", () => { pintarTabla() });
+
 }
