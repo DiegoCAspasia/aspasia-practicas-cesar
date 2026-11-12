@@ -1,4 +1,4 @@
-export class Utils{
+export class Utils {
     // Añadir funciones para reutilizar en otros archivos aqui.
     // Para usar las funciones en otro archivo replicar esta estructura:
     /**
@@ -24,4 +24,11 @@ export class Utils{
      * Utils.decirHola();       // SI, BIEN
      */
 
+    static normalizarTexto(texto) {
+        return texto
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .replace(/[^\p{L}\p{N}\s]/gu, "");
+    }
 }

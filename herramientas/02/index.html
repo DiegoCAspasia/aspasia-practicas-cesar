@@ -1,13 +1,159 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analizador de densidad</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="analizador.css">
+
+    <!-- JavaScript -->
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
+
 <body>
-    <h1>Analizador de densidad de palabras clave</h1>
+
+    <!-- HEADER GENERAL -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- CABECERA DE LA HERRAMIENTA -->
+        <div class="page-header">
+
+            <div class="breadcrumb">
+                Marketing / Herramientas / Contenidos
+            </div>
+
+            <h1>Analizador de densidad de palabras clave</h1>
+
+            <p>
+                Analiza la densidad de palabras clave de un texto.
+            </p>
+
+        </div>
+
+
+        <!-- CONFIGURACIÓN DE KEYWORDS -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Configuración de palabras clave</h2>
+                <p>
+                    Añade las palabras clave de las que quieras analizar su densidad.
+                    Las palabras clave pueden ser varias palabras, separe los terminos con comas.
+                </p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="keywords">
+                    Palabras clave:
+                </label>
+
+                <textarea id="keywords" placeholder="Ingenieria, cocina, profesionalidad nivel II..."></textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEXTO A ANALIZAR -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Texto a analizar</h2>
+                <p>
+                    Pega el contenido que quieras analizar.
+                </p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="parrafo">
+                    Párrafo que comprobar:
+                </label>
+
+                <textarea id="parrafo"
+                    placeholder="Pega aquí el texto del que quieras analizar sus palabras clave"></textarea>
+
+            </div>
+
+            <div class="panel-actions">
+                <div class="boton">
+                    <button type="button" id="analizar">Analizar</button>
+                    <p class="dialogo-boton">¡Analizado!</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Métricas del texto</h2>
+                <p>
+                    Frecuencia de cada palabra clave.
+                </p>
+            </div>
+
+            <!-- MÉTRICAS -->
+            <div class="metrics-grid" id="grid-metrica">
+
+                
+
+            </div>
+
+        </section>
+
+        <section class="panel">
+            <div class="panel-title">
+                <h2>Tabla de frecuencia</h2>
+                <p>
+                    Tabla con la frecuencia de las palabras y conjuntos de palabras del texto.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="numero-palabras">Cantidad de palabras por grupo:</label>
+                <input type="number" id="numero-palabras" value="1">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Palabra/s</th>
+                        <th>Cantidad</th>
+                        <th>Porcentaje</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-cuerpo">
+
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
 </body>
+
 </html>
