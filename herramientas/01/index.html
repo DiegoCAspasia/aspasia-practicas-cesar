@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="script.js"></script>
     <link rel="stylesheet" href="calculadora.css">
 </head>
+
 <body>
     <h1>Calculadora de tiempo de lectura y metricas de texto</h1>
 
@@ -16,22 +18,25 @@
         <section>
             <label for="velocidad">Velocidad de lectura:</label>
             <select id="velocidad">
-                <option value="180">Lenta (180 p/min)</option>
-                <option value="230">Media (230 p/min)</option>
-                <option value="280">Rápida (280 p/min)</option>
+                <option value="180">Lenta (180 ppm)</option>
+                <option value="230">Media (230 ppm)</option>
+                <option value="280">Rápida (280 ppm)</option>
             </select>
         </section>
         <section>
             <label for="parrafo">Parrafo que comprobar:<br></label>
-            <textarea style="width: 25rem; height: 15rem;" id="parrafo" placeholder="Pegue aquí el texto que quiera medir en tiempo de lectura"></textarea>
+            <textarea style="width: 25rem; height: 15rem;" id="parrafo"
+                placeholder="Pegue aquí el texto que quiera medir en tiempo de lectura"></textarea>
         </section>
         <section>
             <p>Métrica:</p>
             <p>Tiempo de lectura: <span id="calculo">Sin texto que medir</span></p>
+            <p>Caracteres con espacios: <span id="caracteres-espacios">0</span></p>
+            <p>Caracteres totales: <span id="caracteres">0</span></p>
             <p>Palabras: <span id="palabras">0</span></p>
             <p>Frases: <span id="frases">0</span></p>
             <p>Parrafos: <span id="parrafos">0</span></p>
-            
+
             <div class="boton" id="copiar">
                 <button>Copiar métrica al portapapeles</button>
                 <span class="tooltip">Texto copiado!</span>
@@ -39,4 +44,5 @@
         </section>
     </main>
 </body>
+
 </html>
