@@ -12,7 +12,6 @@ function start() {
     let calculo = document.getElementById("calculo");
 
     let copiar = document.getElementById("copiar");
-    let tooltip = document.getElementsByClassName("tooltip")[0];
 
     let caracteresEspacio = 0;
     let caracteres = 0;
@@ -44,7 +43,7 @@ function start() {
         frasesSpan.textContent = frases;
         parrafosSpan.textContent = parrafos;
 
-        if(texto == ""){
+        if (texto == "") {
             calculo.textContent = "Sin texto que medir";
             return;
         }
@@ -60,16 +59,20 @@ function start() {
     }
 
     copiar.addEventListener("click", (event) => {
+
         event.preventDefault();
 
-        navigator.clipboard.writeText(calculo.textContent);
-    })
+        let metricas = `
+Tiempo de lectura: ${calculo.textContent}
+Caracteres con espacios: ${caracteresEspacioSpan.textContent}
+Caracteres sin espacios: ${caracteresSpan.textContent}
+Palabras: ${palabrasSpan.textContent}
+Frases: ${frasesSpan.textContent}
+Párrafos: ${parrafosSpan.textContent}
+        `.trim();
+        
+        navigator.clipboard.writeText(metricas);
 
-    copiar.addEventListener("click", (event) => {
-        tooltip.style.display = "block";
+    });
 
-        setTimeout(() => {
-            tooltip.style.display = "none";
-        }, 2000);
-    })
 }

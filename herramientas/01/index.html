@@ -1,48 +1,188 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora tiempo lectura</title>
 
+    <title>Calculadora tiempo de lectura</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="../../css/base.css">
-    <script src="script.js"></script>
     <link rel="stylesheet" href="calculadora.css">
+
+    <!-- JavaScript -->
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <h1>Calculadora de tiempo de lectura y metricas de texto</h1>
 
+    <!-- HEADER GENERAL -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
     <main>
-        <section>
-            <label for="velocidad">Velocidad de lectura:</label>
-            <select id="velocidad">
-                <option value="180">Lenta (180 ppm)</option>
-                <option value="230">Media (230 ppm)</option>
-                <option value="280">Rápida (280 ppm)</option>
-            </select>
-        </section>
-        <section>
-            <label for="parrafo">Parrafo que comprobar:<br></label>
-            <textarea style="width: 25rem; height: 15rem;" id="parrafo"
-                placeholder="Pegue aquí el texto que quiera medir en tiempo de lectura"></textarea>
-        </section>
-        <section>
-            <p>Métrica:</p>
-            <p>Tiempo de lectura: <span id="calculo">Sin texto que medir</span></p>
-            <p>Caracteres con espacios: <span id="caracteres-espacios">0</span></p>
-            <p>Caracteres totales: <span id="caracteres">0</span></p>
-            <p>Palabras: <span id="palabras">0</span></p>
-            <p>Frases: <span id="frases">0</span></p>
-            <p>Parrafos: <span id="parrafos">0</span></p>
 
-            <div class="boton" id="copiar">
-                <button>Copiar métrica al portapapeles</button>
-                <span class="tooltip">Texto copiado!</span>
+        <!-- CABECERA DE LA HERRAMIENTA -->
+        <div class="page-header">
+
+            <div class="breadcrumb">
+                Marketing / Herramientas / Contenidos
             </div>
-        </section>
-    </main>
-</body>
 
+            <h1>Calculadora de tiempo de lectura y métricas de texto</h1>
+
+            <p>
+                Calcula cuánto tiempo necesita un usuario
+                para leer un texto según su extensión.
+            </p>
+
+        </div>
+
+
+        <!-- CONFIGURACIÓN DE LECTURA -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Configuración de lectura</h2>
+                <p>
+                    Selecciona la velocidad de lectura que quieres utilizar.
+                </p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="velocidad">
+                    Velocidad de lectura:
+                </label>
+
+                <select id="velocidad">
+                    <option value="180">Lenta (180 ppm)</option>
+                    <option value="230" selected>Media (230 ppm)</option>
+                    <option value="280">Rápida (280 ppm)</option>
+                </select>
+
+            </div>
+
+        </section>
+
+
+        <!-- TEXTO A ANALIZAR -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Texto a analizar</h2>
+                <p>
+                    Pega el contenido que quieras medir.
+                </p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="parrafo">
+                    Párrafo que comprobar:
+                </label>
+
+                <textarea
+                    id="parrafo"
+                    placeholder="Pega aquí el texto que quieras medir en tiempo de lectura"
+                ></textarea>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Métricas del texto</h2>
+                <p>
+                    Resultados del análisis de tu contenido.
+                </p>
+            </div>
+
+
+            <!-- TIEMPO DE LECTURA -->
+            <div class="result">
+
+                <div class="result-title">
+                    Tiempo de lectura
+                </div>
+
+                <div class="result-value" id="calculo">
+                    Sin texto que medir
+                </div>
+
+            </div>
+
+
+            <!-- MÉTRICAS -->
+            <div class="metrics-grid">
+
+                <div class="metric-card">
+                    <span>Caracteres con espacios</span>
+                    <strong id="caracteres-espacios">0</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Caracteres sin espacios</span>
+                    <strong id="caracteres">0</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Palabras</span>
+                    <strong id="palabras">0</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Frases</span>
+                    <strong id="frases">0</strong>
+                </div>
+
+                <div class="metric-card">
+                    <span>Párrafos</span>
+                    <strong id="parrafos">0</strong>
+                </div>
+
+            </div>
+
+
+            <!-- ACCIONES DEL PANEL -->
+            <div class="panel-actions">
+
+                <div class="boton" id="copiar">
+
+                    <button type="button">
+                        Copiar métricas al portapapeles
+                    </button>
+
+                    <p class="dialogo-boton">
+                        ¡Texto copiado!
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
+</body>
 </html>

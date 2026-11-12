@@ -1,18 +1,45 @@
-.boton {
-    position: relative;
-    display: inline-block;
+/* CUADRÍCULA DE MÉTRICAS */
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.tooltip {
-    display: none;
-    position: absolute;
-    top: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #333;
-    color: white;
-    padding: 6px 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    font-size: 12px;
+.metric-card {
+    background: #F5F7F9;
+    border: 1px solid #DFE6EC;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.metric-card span {
+    font-size: 13px;
+    color: #718292;
+}
+
+.metric-card strong {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    color: #00518A;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-actions {
+        justify-content: stretch;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
 }
