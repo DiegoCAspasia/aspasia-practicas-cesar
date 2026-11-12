@@ -481,6 +481,16 @@ textarea {
     color: #00518A;
 }
 
+.metric-card.danger {
+    background-color: #FDE8E7;
+    border: 1px solid #E53935;
+    color: #B71C1C;
+}
+
+.metric-card.danger strong {
+    color: #C62828;
+}
+
 
 /* =========================================
    13. TABLAS
