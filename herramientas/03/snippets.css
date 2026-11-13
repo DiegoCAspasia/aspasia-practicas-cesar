@@ -1,0 +1,142 @@
+/* Barra de progreso */
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  background: #e8eaed;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: calc(var(--progress) * 1%);
+  border-radius: 20px;
+
+  background: hsl(
+    calc(120 - (var(--progress) * 1.2)),
+    75%,
+    45%
+  );
+
+  transition:
+    width 0.4s ease,
+    background-color 0.4s ease;
+}
+
+
+/* Snippet de google */
+
+.google-snippet {
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  max-width: 652px;
+  color: #202124;
+  padding: 12px 0;
+  box-sizing: border-box;
+}
+
+/* Cabecera */
+.google-snippet .snippet-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+/* Favicon */
+.google-snippet .snippet-favicon {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  object-fit: contain;
+  margin-top: 2px;
+}
+
+/* Nombre y URL */
+.google-snippet .snippet-site {
+  flex: 1;
+  min-width: 0;
+}
+
+.google-snippet .snippet-site-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #202124;
+}
+
+/* URL y menú en la misma línea */
+.google-snippet .snippet-url-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+}
+
+.google-snippet .snippet-url {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #5f6368;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Tres puntos */
+.google-snippet .snippet-menu {
+  flex-shrink: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0;
+  color: #5f6368;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  transform: translateY(-1px);
+}
+
+/* Título */
+.google-snippet .snippet-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 26px;
+  color: #1a0dab;
+  max-width: 580px;
+  margin: 0 0 4px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+
+/* Descripción */
+.google-snippet .snippet-description {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  color: #4d5156;
+  max-width: 920px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .google-snippet,
+  .google-snippet .snippet-title,
+  .google-snippet .snippet-description {
+    max-width: 100%;
+  }
+}
