@@ -6,8 +6,192 @@
     <title>Generador de etiquetas Open Graph</title>
 
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="opengraph.css">
+    
+    <!-- JavaScript -->
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
 <body>
-    <h1>Generador de etiquetas Open Graph y previsualizador para redes sociales</h1>
+
+    <!-- HEADER GENERAL -->
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <!-- CABECERA DE LA HERRAMIENTA -->
+        <div class="page-header">
+
+            <div class="breadcrumb">
+                Marketing / Herramientas / Contenidos
+            </div>
+
+            <h1>Generador de etiquetas Open Graph y previsualizador para redes sociales</h1>
+
+            <p>
+                Analiza la densidad de palabras clave de un texto.
+            </p>
+
+        </div>
+
+        <!-- TEXTO A ANALIZAR -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Texto a analizar</h2>
+                <p>
+                    Escribe el contenido que quieras analizar.
+                </p>
+            </div>
+
+            <div class="form-group">
+
+                <label for="url">
+                    URL:
+                </label>
+
+                <input type="text" id="url" placeholder="Escribe aqui la URL para la previsualizacion">
+
+                <label for="titulo">
+                    Titulo:
+                </label>
+
+                <input type="text" id="titulo" placeholder="Pega aquí el titulo que quieras analizar">
+
+                <div class="progress-container">
+                    <div id="barra-titulo" class="progress-bar" style="--progress: 0; --hue: 30"></div>
+                </div>
+
+
+                <label for="descripcion">
+                    Descipcion:
+                </label>
+
+                <textarea id="descripcion" placeholder="Pega aquí la descripcion que quieras analizar"></textarea>
+
+                <div class="progress-container">
+                    <div id="barra-descripcion" class="progress-bar" style="--progress: 0; --hue: 30"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+        <section class="panel">
+            <div class="panel-title">
+                <h2>Resultado en Google</h2>
+                <p>
+                    Previsualizacion teorica de lo que podria mostrar Google.
+                </p>
+            </div>
+
+
+            <div class="tabs-container">
+
+                <!-- NAVEGACIÓN -->
+                <div class="tabs-nav">
+
+                    <button class="active" data-tab="desktop" id="desktop-page">
+                        Escritorio
+                    </button>
+
+                    <button data-tab="mobile" id="mobile-page">
+                        Movil
+                    </button>
+
+
+                </div>
+
+                <!-- CONTENIDOS -->
+                <div class="tabs-content">
+
+                    <div class="tab-panel active" data-tab-content="desktop">
+                        <div class="google-snippet" id="google-snippet-desktop">
+                            <div class="snippet-header">
+                                <img class="snippet-favicon"
+                                    src="https://www.google.com/s2/favicons?domain=example.com&sz=64" alt="Favicon">
+
+                                <div class="snippet-site">
+                                    <div class="snippet-site-name">
+                                        Nombre de tu empresa
+                                    </div>
+
+                                    <div class="snippet-url-row">
+                                        <span class="snippet-url" id="snippet-url">
+                                            https://www.example.com/categoria/pagina
+                                        </span>
+                                        <span class="snippet-menu">⋮</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="snippet-title" id="snippet-title">
+                                Este es el título SEO personalizado de tu página
+                            </h3>
+
+                            <div class="snippet-description" id="snippet-description">
+                                Esta es la descripción personalizada que aparecerá debajo
+                                del título en los resultados de búsqueda de Google.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-panel" data-tab-content="mobile">
+                        <div class="google-snippet" id="google-snippet-mobile">
+                            <div class="snippet-header">
+                                <img class="snippet-favicon"
+                                    src="https://www.google.com/s2/favicons?domain=example.com&sz=64" alt="Favicon">
+
+                                <div class="snippet-site">
+                                    <div class="snippet-site-name">
+                                        Nombre de tu empresa
+                                    </div>
+
+                                    <div class="snippet-url-row">
+                                        <span class="snippet-url" id="snippet-url">
+                                            https://www.example.com/categoria/pagina
+                                        </span>
+                                        <span class="snippet-menu">⋮</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3 class="snippet-title" id="snippet-title">
+                                Este es el título SEO personalizado de tu página
+                            </h3>
+
+                            <div class="snippet-description" id="snippet-description">
+                                Esta es la descripción personalizada que aparecerá debajo
+                                del título en los resultados de búsqueda de Google.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+
+        </section>
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
 </body>
+
 </html>
