@@ -12,12 +12,6 @@ function start() {
 
     let barraTitulo = document.getElementById("barra-titulo");
     let barraDescripcion = document.getElementById("barra-descripcion");
-    let snippetUrlDesktop = document.getElementById("snippet-url-desktop");
-    let snippetTitleDesktop = document.getElementById("snippet-title-desktop");
-    let snippetDescriptionDesktop = document.getElementById("snippet-description-desktop");
-    let snippetUrlMobile = document.getElementById("snippet-url-mobile");
-    let snippetTitleMobile = document.getElementById("snippet-title-mobile");
-    let snippetDescriptionMobile = document.getElementById("snippet-description-mobile");
 
     let desktopPage = document.getElementById("desktop-page");
     let mobilePage = document.getElementById("mobile-page");
@@ -72,24 +66,23 @@ function start() {
             desktop ? descripcionDesktop : descripcionMobile,
             barraDescripcion, 
             desktop ? descripcionLongitudDesktop : descripcionLongitudMobile);
-        setTextsDesktop(url, tituloDesktop, descripcionDesktop);
-        setTextsMobile(url, tituloMobile, descripcionMobile);
+        setTextsSnippet("google-snippet-desktop", url, tituloDesktop, descripcionDesktop);
+        setTextsSnippet("google-snippet-mobile", url, tituloMobile, descripcionMobile);
     }
 
-    function setTextsDesktop(url, titulo, descripcion) {
-        snippetUrlDesktop.textContent = url;
-        snippetTitleDesktop.textContent = titulo;
-        snippetDescriptionDesktop.textContent = descripcion;
-    }
+    function setTextsSnippet(snippetId, url, titulo, descripcion) {
+        let snippet = document.getElementById(snippetId);
 
-    function setTextsMobile(url, titulo, descripcion) {
-        snippetUrlMobile.textContent = url;
-        snippetTitleMobile.textContent = titulo;
-        snippetDescriptionMobile.textContent = descripcion;
+        let snippetUrl = snippet.querySelector("#snippet-url")
+        let snippetTitle = snippet.querySelector("#snippet-title")
+        let snippetDescription = snippet.querySelector("#snippet-description")
+
+        snippetUrl.textContent = url;
+        snippetTitle.textContent = titulo;
+        snippetDescription.textContent = descripcion;
     }
 
     function setProgressBar(texto, barra, longitud) {
-        console.log(desktop)
         let longitudTexto = medirTexto(texto);
         let porcentaje = (longitudTexto * 100) / longitud;
         if (porcentaje > 100) porcentaje = 100;
