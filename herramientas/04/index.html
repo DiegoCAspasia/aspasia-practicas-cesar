@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,12 @@
 
     <link rel="stylesheet" href="../../css/base.css">
     <link rel="stylesheet" href="opengraph.css">
-    
+
     <!-- JavaScript -->
     <script src="../../js/base.js" defer></script>
     <script src="script.js" type="module"></script>
 </head>
+
 <body>
 
     <!-- HEADER GENERAL -->
@@ -77,6 +79,28 @@
 
                 <input type="text" id="nombre" placeholder="Pega aquí el nombre de la pagina para la previsualizacion">
 
+                <label for="tipo">
+                    Tipo:
+                </label>
+
+                <select id="tipo">
+                    <option value="web">Web</option>
+                    <option value="article">Articulo</option>
+                </select>
+
+                <label for="imagen">
+                    Imagen:
+                </label>
+
+                <input type="file" id="imagen" accept="image/*">
+
+            </div>
+
+            <div class="panel-actions">
+                <div class="boton">
+                    <button id="analizar">Generar</button>
+                    <p class="dialogo-boton">¡Generado!</p>
+                </div>
             </div>
 
         </section>
@@ -112,28 +136,155 @@
                 </div>
 
                 <!-- CONTENIDOS -->
-                <div class="tabs-content">
 
+                <div class="tabs-content" id="tabs" style="display: none;">
+
+                    <!-- LINKEDIN -->
                     <div class="tab-panel active" data-tab-content="linkedin">
-                        
+
+                        <div class="social-snippet linkedin" id="linkedin">
+
+                            <img class="snippet-image" id="embed-image-linkedin" src="" alt="">
+
+                            <div class="snippet-content">
+
+                                <span class="snippet-domain" id="embed-domain-linkedin">ejemplo.com</span>
+
+                                <h3 class="snippet-title" id="embed-title-linkedin">
+                                    Título de la publicación
+                                </h3>
+
+                                <p class="snippet-description" id="embed-description-linkedin">
+                                    Descripción de ejemplo para mostrar cómo aparecerá el enlace compartido.
+                                </p>
+
+                                <span class="snippet-site-name" id="embed-site-name-linkedin">
+                                    Nombre del sitio
+                                </span>
+
+                                <span class="snippet-type" id="embed-type-linkedin">
+                                    Artículo
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>HTML</span>
+                                <div class="boton">
+                                    <button class="copy-code" id="copiar-codigo-linkedin">Copiar código</button>
+                                    <p class="dialogo-boton">¡Copiado!</p>
+                                </div>
+                            </div>
+
+                            <pre><code id="codigo-generado-linkedin"></code></pre>
+                        </div>
+
                     </div>
 
+
+                    <!-- FACEBOOK -->
                     <div class="tab-panel" data-tab-content="facebook">
-                        
+
+                        <div class="social-snippet facebook" id="facebook">
+
+                            <img class="snippet-image" id="embed-image-facebook" src="" alt="">
+
+                            <div class="snippet-content">
+
+                                <span class="snippet-domain" id="embed-domain-facebook">ejemplo.com</span>
+
+                                <h3 class="snippet-title" id="embed-title-facebook">
+                                    Título de la publicación
+                                </h3>
+
+                                <p class="snippet-description" id="embed-description-facebook">
+                                    Descripción de ejemplo para mostrar cómo aparecerá el enlace compartido.
+                                </p>
+
+                                <span class="snippet-site-name" id="embed-site-name-facebook">
+                                    Nombre del sitio
+                                </span>
+
+                                <span class="snippet-type" id="embed-type-facebook">
+                                    Artículo
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>HTML</span>
+                                <div class="boton">
+                                    <button class="copy-code" id="copiar-codigo-facebook">Copiar código</button>
+                                    <p class="dialogo-boton">¡Copiado!</p>
+                                </div>
+                            </div>
+
+                            <pre><code id="codigo-generado-facebook"></code></pre>
+                        </div>
+
                     </div>
 
+
+                    <!-- TWITTER / X -->
                     <div class="tab-panel" data-tab-content="twitter">
-                        
+
+                        <div class="social-snippet twitter" id="twitter">
+
+                            <img class="snippet-image" id="embed-image-twitter" src="" alt="">
+
+                            <div class="snippet-content">
+
+                                <span class="snippet-domain" id="embed-domain-twitter">ejemplo.com</span>
+
+                                <h3 class="snippet-title" id="embed-title-twitter">
+                                    Título de la publicación
+                                </h3>
+
+                                <p class="snippet-description" id="embed-description-twitter">
+                                    Descripción de ejemplo para mostrar cómo aparecerá el enlace compartido.
+                                </p>
+
+                                <span class="snippet-site-name" id="embed-site-name-twitter">
+                                    Nombre del sitio
+                                </span>
+
+                                <span class="snippet-type" id="embed-type-twitter">
+                                    Artículo
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div class="code-container">
+                            <div class="code-header">
+                                <span>HTML</span>
+                                <div class="boton">
+                                    <button class="copy-code" id="copiar-codigo-twitter">Copiar código</button>
+                                    <p class="dialogo-boton">¡Copiado!</p>
+                                </div>
+                            </div>
+
+                            <pre><code id="codigo-generado-twitter"></code></pre>
+                        </div>
+
                     </div>
                 </div>
 
-            </div>
+                <div class="result" id="aviso-proporcion" style="display: none;">
 
+                    <div class="result-title">
+                        Proporcion de imagen
+                    </div>
 
-            <div class="">
+                    <div class="result-value">
+                        <span id="proporcion"></span> <span id="mensaje-proporcion"></span>
+                    </div>
 
-            </div>
-
+                </div>
 
         </section>
     </main>

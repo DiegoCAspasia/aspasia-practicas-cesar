@@ -449,6 +449,20 @@ textarea {
     font-weight: 800;
 }
 
+.result.danger {
+    background-color: #FDE8E7;
+    border-left: 4px solid #E53935;
+    color: #B71C1C;
+}
+
+.result.danger .result-title {
+    color: #B71C1C;
+}
+
+.result.danger .result-value {
+    color: #C62828;
+}
+
 /* =========================================
     12.1 METRICAS
 ========================================= */
