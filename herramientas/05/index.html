@@ -1,13 +1,181 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Constructor de plantillas HTML</title>
 
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="constructor.css">
+
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
+
 <body>
-    <h1>Constructor de plantillas HTML para posts del blog</h1>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-header">
+            <div class="breadcrumb">
+                Marketing / Herramientas / Contenidos
+            </div>
+
+            <h1>Constructor de plantillas HTML para posts del blog</h1>
+
+            <p>
+                Herramienta para crear artículos web por interfaz gráfica sin código.
+            </p>
+        </div>
+
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Artículo web</h2>
+                <p>
+                    Añade elementos con los botones inferiores y edítalos desde el constructor.
+                </p>
+            </div>
+
+            <!-- Título independiente del artículo -->
+            <div class="form-group">
+                <label for="titulo-articulo">Título del artículo (H1)</label>
+                <input
+                    type="text"
+                    id="titulo-articulo"
+                    placeholder="Escribe el título del artículo">
+            </div>
+
+            <!-- Lista de elementos -->
+            <div class="card" id="lista-generada">
+
+                <template id="template">
+                    <div class="panel elemento"
+                         data-role="elemento"
+                         data-id="">
+
+                        <div class="panel-title">
+                            <h3 data-role="tipo"></h3>
+                        </div>
+
+                        <div data-role="campos"></div>
+
+                        <div class="panel-actions">
+                            <div class="boton">
+                                <button type="button" data-action="subir">
+                                    Subir
+                                </button>
+                            </div>
+
+                            <div class="boton">
+                                <button type="button" data-action="bajar">
+                                    Bajar
+                                </button>
+                            </div>
+
+                            <div class="boton">
+                                <button type="button" data-action="eliminar">
+                                    Eliminar
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </template>
+
+            </div>
+
+            <!-- Botones para añadir elementos -->
+            <div class="panel-actions">
+
+                <div class="boton">
+                    <button type="button" id="addH2">Añadir H2</button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="addH3">Añadir H3</button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="addP">Añadir párrafo</button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="addUl">Añadir lista</button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="addImg">Añadir imagen</button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="addCTA">Añadir CTA</button>
+                </div>
+
+                <div class="form-group">
+                    <label for="generar-indice">Generar índice:</label>
+                    <input type="checkbox" id="generar-indice">
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Resultados -->
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Resultados</h2>
+                <p>
+                    Consulta la vista previa y copia el código HTML generado.
+                </p>
+            </div>
+
+            <div id="errores-validacion" aria-live="polite"></div>
+
+            <h3>Vista previa del artículo</h3>
+
+            <div class="card" id="pagina-generada"></div>
+
+            <div class="code-container">
+
+                <div class="code-header">
+                    <span>HTML generado</span>
+
+                    <div class="boton">
+                        <button
+                            type="button"
+                            class="copy-code"
+                            id="copiar-codigo">
+                            Copiar código
+                        </button>
+
+                        <p class="dialogo-boton" id="mensaje-copiado">
+                            ¡Copiado!
+                        </p>
+                    </div>
+                </div>
+
+                <pre><code id="codigo-generado"></code></pre>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
 </body>
 </html>
