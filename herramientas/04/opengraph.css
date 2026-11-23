@@ -1,115 +1,272 @@
 
-/* =========================
-   PREVISUALIZACIÓN COMÚN
-========================= */
+/* =========================================
+   EMBEDS DE REDES SOCIALES
+   Simulación de tarjetas de enlaces reales
+========================================= */
 
-.social-snippet {
+
+/* =========================================
+   LINKEDIN
+   Miniatura izquierda + información derecha
+========================================= */
+
+.social-snippet.linkedin {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
     width: 100%;
-    max-width: 600px;
+    max-width: 520px;
+    min-height: 112px;
     overflow: hidden;
-    background: #fff;
-    border: 1px solid #DFE6EC;
-    font-family: Arial, sans-serif;
-    color: #34495A;
+
+    background: #f3f2ef;
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.social-snippet .snippet-image {
+.social-snippet.linkedin .snippet-image {
+    display: block;
+    flex: 0 0 112px;
+    width: 112px;
+    height: 112px;
+    object-fit: cover;
+    border: 0;
+    background: #e9e9e9;
+}
+
+.social-snippet.linkedin .snippet-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    padding: 10px 12px;
+    background: #f3f2ef;
+}
+
+.social-snippet.linkedin .snippet-title {
+    order: 1;
+    margin: 0 0 5px;
+    color: #191919;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+.social-snippet.linkedin .snippet-domain {
+    order: 2;
+    color: #666666;
+    font-size: 12px;
+    line-height: 1.3;
+}
+
+.social-snippet.linkedin .snippet-description {
+    display: none;
+}
+
+
+/* =========================================
+   FACEBOOK
+   Imagen superior + información inferior
+========================================= */
+
+.social-snippet.facebook {
     display: block;
     width: 100%;
-    aspect-ratio: 1200 / 630;
-    object-fit: cover;
-    background: #F5F7F9;
+    max-width: 500px;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #ced0d4;
+    border-radius: 3px;
+
+    font-family: Helvetica, Arial, sans-serif;
+    color: #1c1e21;
 }
 
-.social-snippet .snippet-content {
-    padding: 12px;
-    min-width: 0;
-}
-
-.social-snippet .snippet-domain,
-.social-snippet .snippet-site-name,
-.social-snippet .snippet-type {
+.social-snippet.facebook .snippet-image {
     display: block;
-    font-size: 12px;
-    color: #718292;
-    margin-bottom: 5px;
+    width: 100%;
+    height: 261px;
+    object-fit: cover;
+    border: 0;
+    background: #e4e6eb;
 }
 
-.social-snippet .snippet-domain {
+.social-snippet.facebook .snippet-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px 12px;
+    background: #f2f3f5;
+    border-top: 1px solid #dddfe2;
+}
+
+.social-snippet.facebook .snippet-domain {
+    order: 1;
+    display: block;
+    margin-bottom: 4px;
+
+    color: #606770;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.3;
     text-transform: uppercase;
 }
 
-.social-snippet .snippet-title {
+.social-snippet.facebook .snippet-title {
+    order: 2;
+    margin: 0 0 4px;
+
+    color: #1c1e21;
+    font-family: Helvetica, Arial, sans-serif;
     font-size: 16px;
     font-weight: 600;
-    line-height: 1.3;
-    margin: 0 0 5px;
-    color: #222;
+    line-height: 1.25;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
-.social-snippet .snippet-description {
-    font-size: 14px;
-    line-height: 1.4;
-    color: #718292;
-    margin: 0 0 8px;
-}
+.social-snippet.facebook .snippet-description {
+    order: 3;
+    display: -webkit-box;
+    margin: 0;
 
-.social-snippet .snippet-type {
-    margin-bottom: 0;
-}
-
-
-/* =========================
-   FACEBOOK
-========================= */
-
-.facebook {
-    border-radius: 3px;
-    background: #F0F2F5;
-}
-
-.facebook .snippet-content {
-    background: #F0F2F5;
-}
-
-
-/* =========================
-   LINKEDIN
-========================= */
-
-.linkedin {
-    border-radius: 8px;
-}
-
-.linkedin .snippet-domain,
-.linkedin .snippet-site-name {
-    text-transform: none;
-}
-
-.linkedin .snippet-title {
-    font-size: 14px;
-}
-
-
-/* =========================
-   TWITTER / X
-========================= */
-
-.twitter {
-    border-radius: 14px;
-}
-
-.twitter .snippet-image {
-    border-radius: 13px 13px 0 0;
-}
-
-.twitter .snippet-domain,
-.twitter .snippet-site-name {
-    text-transform: none;
+    color: #606770;
     font-size: 13px;
+    line-height: 1.35;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
-.twitter .snippet-title {
+
+/* =========================================
+   X / TWITTER
+   Summary Large Image Card
+========================================= */
+
+.social-snippet.twitter {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #cfd9de;
+    border-radius: 16px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: #0f1419;
+}
+
+.social-snippet.twitter .snippet-image {
+    display: block;
+    width: 100%;
+    height: 261px;
+    object-fit: cover;
+    border: 0;
+    background: #e7ecf0;
+}
+
+.social-snippet.twitter .snippet-content {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 12px 12px;
+    background: #ffffff;
+}
+
+.social-snippet.twitter .snippet-domain {
+    order: 1;
+    display: block;
+    margin-bottom: 2px;
+
+    color: #536471;
+    font-size: 13px;
+    line-height: 1.3;
+}
+
+.social-snippet.twitter .snippet-title {
+    order: 2;
+    margin: 0 0 3px;
+
+    color: #0f1419;
+    font-family: Arial, sans-serif;
     font-size: 15px;
+    font-weight: 600;
+    line-height: 1.35;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
 }
 
+.social-snippet.twitter .snippet-description {
+    order: 3;
+    display: -webkit-box;
+    margin: 0;
+
+    color: #536471;
+    font-size: 13px;
+    line-height: 1.35;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ELEMENTOS COMUNES
+========================================= */
+
+.social-snippet .snippet-site-name,
+.social-snippet .snippet-type {
+    display: none;
+}
+
+.social-snippet .snippet-image[src=""],
+.social-snippet .snippet-image:not([src]) {
+    display: none;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .social-snippet.linkedin {
+        min-height: 100px;
+    }
+
+    .social-snippet.linkedin .snippet-image {
+        flex-basis: 100px;
+        width: 100px;
+        height: 100px;
+    }
+
+    .social-snippet.linkedin .snippet-content {
+        padding: 8px 10px;
+    }
+
+    .social-snippet.facebook .snippet-image,
+    .social-snippet.twitter .snippet-image {
+        height: 200px;
+    }
+
+}

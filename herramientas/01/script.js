@@ -35,7 +35,7 @@ function start() {
         caracteres = texto.trim().split("").filter(caracter => caracter.trim() != "").length;
         palabras = texto.trim().split(/\s+/).filter(palabra => palabra.trim() != "" /* Boolean hace lo mismo */).length;
         frases = texto.trim().split(/[.?!]+/).filter(frase => frase.trim() != "" /* Boolean hace lo mismo */).length;
-        parrafos = texto.trim().split(/\n\s*\n/).filter(parrafo => parrafo.trim() != "" /* Boolean hace lo mismo */).length;
+        parrafos = texto.trim().split(/\n\s*/).filter(parrafo => parrafo.trim() != "" /* Boolean hace lo mismo */).length;
 
         caracteresEspacioSpan.textContent = caracteresEspacio;
         caracteresSpan.textContent = caracteres;
