@@ -1,0 +1,563 @@
+
+/* =========================================
+   AUDITOR ON-PAGE
+   Estilos específicos de la herramienta
+========================================= */
+
+
+/* =========================================
+   1. FORMULARIO DE ENTRADA
+========================================= */
+
+#codigo-html {
+    width: 100%;
+    min-height: 280px;
+    resize: vertical;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 13px;
+    line-height: 1.6;
+    white-space: pre;
+    tab-size: 4;
+}
+
+#dominio {
+    width: 100%;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 7px;
+    color: var(--text-muted);
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.panel-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+
+/* =========================================
+   2. MENSAJES DEL FORMULARIO
+========================================= */
+
+.mensaje-formulario {
+    display: none;
+    margin-top: 15px;
+    padding: 12px 15px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.mensaje-formulario.exito {
+    display: block;
+    color: #166534;
+    background: #DCFCE7;
+    border: 1px solid #86EFAC;
+}
+
+.mensaje-formulario.error {
+    display: block;
+    color: #991B1B;
+    background: #FEE2E2;
+    border: 1px solid #FCA5A5;
+}
+
+
+/* =========================================
+   3. CABECERA DEL INFORME
+========================================= */
+
+.informe-cabecera {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.resumen-informe {
+    padding: 9px 14px;
+    border-radius: var(--radius);
+    background: #EAF2F8;
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   4. SECCIONES DESPLEGABLES
+========================================= */
+
+.seccion-informe {
+    margin-top: 18px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+.seccion-informe summary {
+    position: relative;
+    padding: 17px 20px;
+    color: var(--primary-dark);
+    background: #F1F5F9;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.2s ease;
+}
+
+.seccion-informe summary::-webkit-details-marker {
+    display: none;
+}
+
+.seccion-informe summary::after {
+    content: "+";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.seccion-informe[open] summary::after {
+    content: "−";
+}
+
+.seccion-informe summary:hover {
+    background: #E5EDF5;
+}
+
+.contenido-seccion {
+    padding: 22px;
+    border-top: 1px solid var(--border);
+}
+
+.contenido-seccion h3 {
+    margin-top: 22px;
+    margin-bottom: 10px;
+    color: var(--primary-dark);
+    font-size: 17px;
+}
+
+.contenido-seccion > p {
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   5. INDICADORES SEO
+========================================= */
+
+.fila-indicador {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    padding: 15px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #FFFFFF;
+}
+
+.indicador {
+    flex: 0 0 11px;
+    width: 11px;
+    height: 11px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background: #94A3B8;
+}
+
+.indicador.verde {
+    background: #16A34A;
+    box-shadow: 0 0 0 4px #DCFCE7;
+}
+
+.indicador.naranja {
+    background: #EA580C;
+    box-shadow: 0 0 0 4px #FFEDD5;
+}
+
+.indicador.rojo {
+    background: #DC2626;
+    box-shadow: 0 0 0 4px #FEE2E2;
+}
+
+.texto-indicador {
+    flex: 1;
+    min-width: 0;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.texto-indicador > strong {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-dark);
+    font-size: 14px;
+}
+
+.valor-dato {
+    margin-bottom: 4px;
+    overflow-wrap: anywhere;
+    font-weight: 500;
+}
+
+.detalle-dato {
+    display: block;
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================
+   6. ÁRBOL DE ENCABEZADOS
+========================================= */
+
+.arbol-encabezados {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 18px;
+    margin: 15px 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #F8FAFC;
+    list-style: none;
+}
+
+.arbol-encabezados li {
+    padding: 9px 12px;
+    border-left: 3px solid var(--primary);
+    border-radius: 3px;
+    background: #FFFFFF;
+    color: var(--text);
+    font-size: 14px;
+    overflow-wrap: anywhere;
+}
+
+.etiqueta-nivel {
+    display: inline-block;
+    min-width: 32px;
+    margin-right: 8px;
+    color: var(--primary-dark);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.arbol-encabezados .nivel-1 {
+    margin-left: 0;
+    border-left-color: #16A34A;
+    font-weight: 700;
+}
+
+.arbol-encabezados .nivel-2 {
+    margin-left: 20px;
+}
+
+.arbol-encabezados .nivel-3 {
+    margin-left: 40px;
+}
+
+.arbol-encabezados .nivel-4 {
+    margin-left: 60px;
+}
+
+.arbol-encabezados .nivel-5 {
+    margin-left: 80px;
+}
+
+.arbol-encabezados .nivel-6 {
+    margin-left: 100px;
+}
+
+
+/* =========================================
+   7. TARJETAS DE RESUMEN
+========================================= */
+
+.resumen-tipos {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(130px, 1fr)
+    );
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tarjeta-resumen {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 9px;
+    min-height: 95px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #F8FAFC;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.tarjeta-resumen:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+}
+
+.tarjeta-resumen-titulo {
+    color: var(--text-muted);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.tarjeta-resumen-valor {
+    color: var(--primary-dark);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+
+/* =========================================
+   8. TABLAS PAGINADAS
+========================================= */
+
+.tabla-paginada {
+    width: 100%;
+    margin-top: 15px;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.tabla-paginada-datos {
+    width: 100%;
+    min-width: 600px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabla-paginada-datos th,
+.tabla-paginada-datos td {
+    padding: 11px 13px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+    line-height: 1.5;
+}
+
+.tabla-paginada-datos th {
+    color: var(--primary-dark);
+    background: #EAF2F8;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.tabla-paginada-datos tr:nth-child(even) {
+    background: #F8FAFC;
+}
+
+.tabla-paginada-datos tr:hover {
+    background: #EFF6FF;
+}
+
+.tabla-paginada-datos tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* =========================================
+   9. CONTROLES DE PAGINACIÓN
+========================================= */
+
+.tabla-paginada-controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.tabla-paginada-info {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.tabla-paginada-navegacion {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.paginacion-btn {
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #FFFFFF;
+    color: var(--primary-dark);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.paginacion-btn:hover:not(:disabled) {
+    color: #FFFFFF;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.paginacion-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   10. LISTAS Y MENSAJES VACÍOS
+========================================= */
+
+.lista-recursos {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-left: 22px;
+    margin-top: 15px;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.recurso-alerta {
+    color: #B45309;
+}
+
+.estado-vacio {
+    padding: 18px;
+    margin: 15px 0;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    background: #F8FAFC;
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* =========================================
+   11. NOTA DE ALCANCE
+========================================= */
+
+.nota-alcance {
+    margin-top: 25px;
+    padding: 17px 20px;
+    border-left: 4px solid #3B82F6;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: #EFF6FF;
+    color: #1E40AF;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.nota-alcance strong {
+    font-weight: 700;
+}
+
+
+/* =========================================
+   12. RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .informe-cabecera {
+        flex-direction: column;
+    }
+
+    .contenido-seccion {
+        padding: 16px;
+    }
+
+    .resumen-tipos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tabla-paginada-controles {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .arbol-encabezados .nivel-2 {
+        margin-left: 12px;
+    }
+
+    .arbol-encabezados .nivel-3 {
+        margin-left: 24px;
+    }
+
+    .arbol-encabezados .nivel-4 {
+        margin-left: 36px;
+    }
+
+    .arbol-encabezados .nivel-5 {
+        margin-left: 48px;
+    }
+
+    .arbol-encabezados .nivel-6 {
+        margin-left: 60px;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .resumen-tipos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+    }
+
+    .tarjeta-resumen {
+        min-height: 85px;
+        padding: 12px;
+    }
+
+    .tarjeta-resumen-valor {
+        font-size: 23px;
+    }
+
+    .seccion-informe summary {
+        padding: 15px 40px 15px 14px;
+        font-size: 14px;
+    }
+
+    .panel-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .panel-actions .boton {
+        width: 100%;
+    }
+}
