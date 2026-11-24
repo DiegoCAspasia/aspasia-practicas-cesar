@@ -817,3 +817,123 @@ footer p {
     }
 
 }
+
+/* Tabla paginada
+
+
+/* =========================================
+   RESÚMENES DE IMÁGENES Y ENLACES
+========================================= */
+
+.resumen-tipos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.tarjeta-resumen {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #F8FAFC;
+}
+
+.tarjeta-resumen-titulo {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.tarjeta-resumen-valor {
+    color: var(--primary-dark);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   TABLA PAGINADA
+========================================= */
+
+.tabla-paginada {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.tabla-paginada {
+    overflow-x: auto;
+}
+
+.tabla-paginada-datos {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.tabla-paginada-datos th,
+.tabla-paginada-datos td {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+    overflow-wrap: anywhere;
+}
+
+.tabla-paginada-datos th {
+    background: #EDF4F8;
+    color: var(--primary-dark);
+    font-weight: 700;
+}
+
+.tabla-paginada-datos tr:nth-child(even) {
+    background: #F8FAFC;
+}
+
+.tabla-paginada-controles {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.tabla-paginada-info {
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.tabla-paginada-navegacion {
+    display: flex;
+    gap: 8px;
+}
+
+.paginacion-btn {
+    padding: 8px 13px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: #FFFFFF;
+    color: var(--primary-dark);
+    cursor: pointer;
+}
+
+.paginacion-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+
+    .resumen-tipos {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tabla-paginada-controles {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
