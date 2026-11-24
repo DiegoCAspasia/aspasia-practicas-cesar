@@ -1,13 +1,270 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auditor on-page de código HTML</title>
+
+    <title>Auditor on-page de código HTML | Aspasia</title>
 
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="auditor.css">
+
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
+
 <body>
-    <h1>Auditor on-page de código HTML</h1>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-header">
+            <div class="breadcrumb">
+                Marketing / Herramientas / SEO
+            </div>
+
+            <h1>Auditor on-page de código HTML</h1>
+
+            <p>
+                Analiza los principales elementos SEO de una página web
+                a partir de su código fuente HTML.
+            </p>
+        </div>
+
+
+        <!-- ENTRADA DE DATOS -->
+
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Código fuente de la página</h2>
+                <p>
+                    Introduce la URL de la página que quieres analizar
+                    y pega su código fuente HTML.
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="dominio">URL de la página analizada</label>
+
+                <input
+                    type="text"
+                    id="dominio"
+                    name="dominio"
+                    placeholder="https://www.ejemplo.com/servicios/seo"
+                    autocomplete="url"
+                >
+
+                <small>
+                    Introduce la dirección completa de la página.
+                    Se utilizará para clasificar los enlaces internos y externos.
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="codigo-html">Código fuente HTML</label>
+
+                <textarea
+                    id="codigo-html"
+                    name="codigo-html"
+                    placeholder="Pega aquí el código fuente HTML de la página..."
+                    spellcheck="false"
+                ></textarea>
+
+                <small>
+                    Para obtenerlo, abre la página en el navegador,
+                    pulsa Ctrl + U, selecciona todo el código y cópialo.
+                </small>
+            </div>
+
+            <div
+                id="mensaje-formulario"
+                class="mensaje-formulario"
+                role="alert"
+                aria-live="polite">
+            </div>
+
+            <div class="panel-actions">
+
+                <div class="boton">
+                    <button type="button" id="analizar">
+                        Analizar HTML
+                    </button>
+                </div>
+
+                <div class="boton">
+                    <button type="button" id="limpiar">
+                        Limpiar
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADOS -->
+
+        <section class="panel" id="panel-resultados" hidden>
+
+            <div class="panel-title informe-cabecera">
+
+                <div>
+                    <h2>Informe de auditoría SEO</h2>
+                    <p>
+                        Resultados del análisis de los elementos on-page.
+                    </p>
+                </div>
+
+                <div
+                    id="resumen-informe"
+                    class="resumen-informe">
+                </div>
+
+            </div>
+
+
+            <!-- 1. METADATOS -->
+
+            <details class="seccion-informe" open>
+
+                <summary>
+                    1. Información general y metadatos
+                </summary>
+
+                <div
+                    class="contenido-seccion"
+                    id="resultado-metadatos">
+                </div>
+
+            </details>
+
+
+            <!-- 2. ENCABEZADOS -->
+
+            <details class="seccion-informe" open>
+
+                <summary>
+                    2. Estructura de encabezados
+                </summary>
+
+                <div
+                    class="contenido-seccion"
+                    id="resultado-encabezados">
+                </div>
+
+            </details>
+
+
+            <!-- 3. IMÁGENES -->
+
+            <details class="seccion-informe">
+
+                <summary>
+                    3. Imágenes y atributos ALT
+                </summary>
+
+                <div
+                    class="contenido-seccion"
+                    id="resultado-imagenes">
+
+                    <div
+                        id="resumen-imagenes"
+                        class="resumen-tipos">
+                    </div>
+
+                    <h3>Detalle de imágenes</h3>
+
+                    <p>
+                        Consulta todas las imágenes detectadas en el código HTML.
+                    </p>
+
+                    <div id="tabla-imagenes"></div>
+
+                </div>
+
+            </details>
+
+
+            <!-- 4. ENLACES -->
+
+            <details class="seccion-informe">
+
+                <summary>
+                    4. Enlaces internos y externos
+                </summary>
+
+                <div
+                    class="contenido-seccion"
+                    id="resultado-enlaces">
+
+                    <div
+                        id="resumen-enlaces"
+                        class="resumen-tipos">
+                    </div>
+
+                    <h3>Detalle de enlaces</h3>
+
+                    <p>
+                        Consulta todos los enlaces detectados,
+                        su destino y sus atributos.
+                    </p>
+
+                    <div id="tabla-enlaces"></div>
+
+                </div>
+
+            </details>
+
+
+            <!-- 5. HREFLANG -->
+
+            <details class="seccion-informe">
+
+                <summary>
+                    5. Etiquetas hreflang
+                </summary>
+
+                <div
+                    class="contenido-seccion"
+                    id="resultado-hreflang">
+                </div>
+
+            </details>
+
+
+            <!-- LIMITACIONES -->
+
+            <div class="nota-alcance">
+
+                <strong>Nota sobre el análisis:</strong>
+
+                esta herramienta analiza el código HTML que se le proporciona.
+                Los contenidos que se generan dinámicamente mediante JavaScript
+                y que no estén presentes en ese código fuente podrían no aparecer
+                en los resultados.
+
+                Tampoco comprueba directamente las respuestas HTTP,
+                la indexación real en Google ni la reciprocidad de las etiquetas
+                canonical y hreflang.
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
 </body>
 </html>
