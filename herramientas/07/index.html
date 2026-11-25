@@ -1,13 +1,231 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generador de datos estructurados</title>
+    <title>Generador de datos estructurados (JSON-LD)</title>
 
     <link rel="stylesheet" href="../../css/base.css">
+    <link rel="stylesheet" href="json-ld.css">
+
+    <script src="../../js/base.js" defer></script>
+    <script src="script.js" type="module"></script>
 </head>
+
 <body>
-    <h1>Generador de datos estructurados (JSON-LD)</h1>
+
+    <header>
+        <div class="header-inner">
+            <div class="logo">ASPASIA</div>
+            <span>Herramientas de marketing</span>
+        </div>
+    </header>
+
+    <main>
+
+        <div class="page-header">
+            <div class="breadcrumb">
+                Marketing / Herramientas / Contenidos
+            </div>
+
+            <h1>Generador de datos estructurados (JSON-LD)</h1>
+
+            <p>
+                Herramienta para crear artículos web por interfaz gráfica sin código.
+            </p>
+        </div>
+
+        <section class="panel">
+
+            <div class="panel-title">
+                <h2>Artículo web</h2>
+                <p>
+                    Añade elementos con los botones inferiores y edítalos desde el constructor.
+                </p>
+            </div>
+
+            <div class="tabs-container">
+
+                <!-- NAVEGACIÓN -->
+                <div class="tabs-nav">
+
+                    <button class="active" data-tab="course" id="course-tab">
+                        Curso
+                    </button>
+
+                    <button data-tab="faq" id="faq-tab">
+                        Preguntas Frecuentes
+                    </button>
+
+                    <button data-tab="article" id="article-tab">
+                        Articulo
+                    </button>
+
+                    <button data-tab="breadcrumb" id="breadcrumb-tab">
+                        Enlaces
+                    </button>
+
+                </div>
+
+                <!-- CONTENIDOS -->
+
+                <div class="tabs-content" id="tabs">
+
+                    <!-- course -->
+                    <div class="tab-panel active" data-tab-content="course">
+
+
+                        <div class="form-group">
+
+                            <label for="course-name">
+                                Nombre del curso: *
+                            </label>
+                            <input type="text" id="course-name" placeholder="Escribe el nombre del curso">
+
+                            <label for="course-description">
+                                Descripción: *
+                            </label>
+                            <textarea id="course-description" placeholder="Describe el contenido del curso"></textarea>
+
+                            <label for="course-provider">
+                                Nombre del centro o proveedor:
+                            </label>
+                            <input type="text" id="course-provider" placeholder="Nombre de la empresa o centro">
+
+                            <label for="course-url">
+                                URL del curso:
+                            </label>
+                            <input type="url" id="course-url" placeholder="https://ejemplo.com/curso">
+
+                            <label for="course-image">
+                                Imagen del curso:
+                            </label>
+                            <input type="url" id="course-image" placeholder="URL de la imagen">
+
+                            <label for="course-start">
+                                Fecha de inicio:
+                            </label>
+                            <input type="date" id="course-start">
+
+                            <label for="course-end">
+                                Fecha de finalización:
+                            </label>
+                            <input type="date" id="course-end">
+
+                            <label for="course-mode">
+                                Modalidad:
+                            </label>
+                            <select id="course-mode">
+                                <option value="">Selecciona una modalidad</option>
+                                <option value="Presencial">Presencial</option>
+                                <option value="Online">Online</option>
+                                <option value="Semipresencial">Semipresencial</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+
+                    <!-- faq -->
+                    <div class="tab-panel" data-tab-content="faq">
+
+
+                        <div id="lista-faq">
+                            
+                        </div>
+
+                        <button type="button" id="add-faq">
+                            Añadir otra pregunta
+                        </button>
+                    </div>
+
+
+                    <!-- article -->
+                    <div class="tab-panel" data-tab-content="article">
+
+
+                        <div class="form-group">
+
+                            <label for="article-headline">
+                                Título del artículo:
+                            </label>
+                            <input type="text" id="article-headline" placeholder="Escribe el título del artículo">
+
+                            <label for="article-description">
+                                Descripción:
+                            </label>
+                            <textarea id="article-description" placeholder="Escribe un resumen del artículo"></textarea>
+
+                            <label for="article-url">
+                                URL del artículo:
+                            </label>
+                            <input type="url" id="article-url" placeholder="https://ejemplo.com/articulo">
+
+                            <label for="article-author">
+                                Nombre del autor:
+                            </label>
+                            <input type="text" id="article-author" placeholder="Nombre del autor">
+
+                            <label for="article-image">
+                                URL de la imagen:
+                            </label>
+                            <input type="url" id="article-image" placeholder="https://ejemplo.com/imagen.jpg">
+
+                            <label for="article-published">
+                                Fecha de publicación:
+                            </label>
+                            <input type="date" id="article-published">
+
+                            <label for="article-modified">
+                                Fecha de modificación:
+                            </label>
+                            <input type="date" id="article-modified">
+
+                            <label for="article-publisher">
+                                Nombre del editor o empresa:
+                            </label>
+                            <input type="text" id="article-publisher" placeholder="Nombre de la organización">
+
+                        </div>
+                    </div>
+
+                    <!-- breadcrumb -->
+                    <div class="tab-panel" data-tab-content="breadcrumb">
+
+
+                        <div id="lista-breadcrumb">
+                           
+                        </div>
+
+                        <button type="button" id="add-breadcrumb">
+                            Añadir otro nivel
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="code-container">
+                <div class="code-header">
+                    <span>HTML</span>
+                    <div class="boton">
+                        <button class="copy-code" id="copiar-codigo">Copiar código</button>
+                        <p class="dialogo-boton">¡Copiado!</p>
+                    </div>
+                </div>
+
+                <pre><code id="codigo-generado"></code></pre>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Grupo Aspasia · Herramientas de marketing</p>
+    </footer>
+
 </body>
+
 </html>
